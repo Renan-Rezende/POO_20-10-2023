@@ -1,0 +1,49 @@
+package Jogo;
+import java.util.Scanner;
+
+public class JogoOraculo {
+    public static void main(String[] args) {
+        Oraculo oraculoMaster = new Oraculo();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite o nome do Guerreiro: ");
+        String nomeGuerreiro = scanner.nextLine();
+
+        oraculoMaster.setNome(nomeGuerreiro);
+        int vidas = oraculoMaster.setVidas();
+        System.out.println(oraculoMaster.prologoIntroducao());
+
+        int resultadoLevel1 = oraculoMaster.loadLevel1();
+        if (resultadoLevel1 == 1) {
+            System.out.println(oraculoMaster.prologoVencedor());
+        } else {
+            System.out.println(oraculoMaster.prologoPerdedor());
+        }
+
+        System.out.print("Deseja pedir uma vida extra? (S/N): ");
+        String resposta = scanner.next();
+
+        if (resposta.equalsIgnoreCase("S")) {
+            String pedidoMisericordia = oraculoMaster.vidaExtra();
+            if (oraculoMaster.decidirVidaExtra(pedidoMisericordia)) {
+                vidas++;
+                System.out.println("Vida extra concedida! Agora você tem " + vidas + " vidas.");
+            } else {
+                System.out.println("Pedido de misericórdia não concedido.");
+            }
+        }
+
+        int opcaoParImpar;
+        do {
+            System.out.print("Escolha PAR (0) ou ÍMPAR (1) para o jogo PAR ou ÍMPAR: ");
+            opcaoParImpar = scanner.nextInt();
+        } while (opcaoParImpar != 0 && opcaoParImpar != 1);
+
+        int resultadoLevel2 = oraculoMaster.loadLevel2(opcaoParImpar);
+        if (resultadoLevel2 == 1) {
+            System.out.println(oraculoMaster.prologoVencedor());
+        } else {
+            System.out.println(oraculoMaster.prologoPerdedor());
+        }
+    }
+}
