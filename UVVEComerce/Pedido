@@ -1,0 +1,37 @@
+package loja;
+import java.util.Date;
+import java.util.ArrayList;
+
+public class Pedido {
+     
+	 int pedidoId;
+	 Date dataEmissao;
+	 float valorTotalCalculado = 0;
+	 ArrayList<ItemPedido> itensPedido = new ArrayList<ItemPedido>();
+     Date dataAtual = new Date();
+
+	 
+	 public void addItemPedido(ItemPedido item) {
+		 itensPedido.add(item);
+		 System.out.printf("\n" + item + " Adicionado no pedido!\n");
+		 System.out.printf("\nItens no pedido " + this.pedidoId + ": \n");
+		 for(int i = 0; i < itensPedido.size(); i++) {
+			 System.out.println(itensPedido.get(i));
+		 }
+	 }
+	 
+	 public Pedido( int pedidoId) {
+		 this.pedidoId = pedidoId;
+		 this.dataEmissao = dataAtual;
+	 }
+	 
+	 public void calcPrecoTotal() {
+		 for(int i = 0; i < itensPedido.size(); i++) {
+			 this.valorTotalCalculado += itensPedido.get(i).toValorTotalItem();
+		 }
+		 
+		 System.out.println("Preço total do pedido "  + this.pedidoId + ": " + 
+		                     this.valorTotalCalculado);
+	 }
+	 
+}
