@@ -1,0 +1,25 @@
+package iptu_vv;
+
+public class Imovel {
+	
+	int matricula;
+    String nome;
+    float impostos;
+    int  mesesAtraso;
+  
+    public void cadastroImovel(int matricula, String nome,float imposto, int mesesAtraso ) {
+    	this.matricula = matricula;
+    	this.nome = nome;
+    	this.mesesAtraso = mesesAtraso;
+    	this.impostos = imposto;
+    	
+    	System.out.print("Matricula: " + this.matricula +
+    			         "\nNome: " + this.nome + 
+    			         "\nMeses de atraso: " + this.mesesAtraso + 
+    			         "\nImpostos: " + this.impostos + "\n");
+    }
+    
+    public String getNome() {
+    	return nome;
+    }
+}
