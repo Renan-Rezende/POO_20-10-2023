@@ -1,0 +1,24 @@
+package loja;
+
+public class Main {
+	
+    public static void main(String[] args) {
+    	
+        Loja loja1 = new Loja(2023, "csShop", "61.476.287/0013-29", 250400);
+        Pedido pedido1 = new Pedido(01);
+        ItemPedido item1 = new ItemPedido(01, "Tomate", 3, 15);
+        ItemPedido item2 = new ItemPedido(02, "Alface", 2, 10);
+        Funcionario funcionario1 = new Funcionario("Renan", "202309116", 1000);
+        
+        pedido1.addItemPedido(item1);
+        pedido1.addItemPedido(item2);
+        loja1.addPedidos(pedido1);
+        loja1.addFuncionarios(funcionario1);
+        pedido1.calcPrecoTotal();
+            
+    }   
+    
+}
+
+
+
