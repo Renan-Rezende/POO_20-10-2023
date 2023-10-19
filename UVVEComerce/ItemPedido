@@ -1,0 +1,26 @@
+package loja;
+
+public class ItemPedido {
+	
+    int itemPedidoId;
+    String item;
+    int quantidade;
+    float precoUnitario;
+    float valorTotalItem;
+
+    public ItemPedido(int itemPedidoId, String nome, int quantidade, float precoUnitario) {
+        this.itemPedidoId = itemPedidoId;
+        this.item = nome;
+        this.quantidade = quantidade;
+        this.precoUnitario = precoUnitario;
+    }
+
+    
+    public String toString() {
+        return "ID: " + itemPedidoId + ", Item: " + item + ", Quantidade: " + quantidade + ", Preço Unitário: " + precoUnitario;
+    }
+    
+    public float toValorTotalItem() {
+    	return this.precoUnitario * this.quantidade;
+    }
+}
