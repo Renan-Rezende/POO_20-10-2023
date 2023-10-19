@@ -1,0 +1,42 @@
+package iptu_vv;
+
+public class main {
+    
+	
+	public static void main(String[] args) {
+			
+		Municipio municipio1 = new Municipio();
+		Municipio municipio2 = new Municipio();
+		
+	    municipio1.addMunicipio("Guarapari");
+		municipio2.addMunicipio("VilaVelha");;
+		
+		Imovel imovel1 = new Imovel();
+		Imovel imovel2 = new Imovel();
+		
+		Imovel imovel3 = new Imovel();
+		Imovel imovel4 = new Imovel();
+		Imovel imovel5 = new Imovel();
+		Imovel imovel6 = new Imovel();
+		
+		
+		imovel1.cadastroImovel(2023, "Renan", 1200, 14);
+		imovel2.cadastroImovel(2024, "Rodrigo", 1500, 1);
+		
+		imovel3.cadastroImovel(2025, "Alberto", 1700, 4);
+		imovel4.cadastroImovel(2026, "Heitor", 2200, 10);
+		imovel5.cadastroImovel(2027, "Pedro", 3300, 7);
+		imovel6.cadastroImovel(2028, "Bricio", 1000, 1);
+		
+		municipio1.addImovel(imovel1);	
+		municipio1.addImovel(imovel2);
+		
+		municipio2.addImovel(imovel3);
+		municipio2.addImovel(imovel4);	
+		municipio2.addImovel(imovel5);
+		municipio2.addImovel(imovel6);
+		Imovel nomeProprietario = municipio2.imoveis.get(1);
+        System.out.println("Nome do proprietarioprimeiro imóvel: " + nomeProprietario.getNome());
+		 
+	}
+}
