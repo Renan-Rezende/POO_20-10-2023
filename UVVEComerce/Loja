@@ -1,0 +1,32 @@
+package loja;
+import java.util.ArrayList;
+
+public class Loja {
+         
+	 int lojaId;
+	 String nomeFantasia;
+	 String cnpj;
+	 double valorDeMercado;
+	 ArrayList<Pedido> pedidos = new ArrayList<Pedido>();
+	 ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
+	 
+	 
+	 Loja(int lojaId, String nomeFantasia,  String cnpj,  double valorDeMercado) {
+		 
+		 this.lojaId = lojaId;
+		 this.nomeFantasia = nomeFantasia;
+		 this.cnpj = cnpj;
+		 this.valorDeMercado = valorDeMercado;
+		 
+	 }
+	 
+	 public void addPedidos(Pedido pedido) {
+		 pedidos.add(pedido);
+	 }
+	 
+     public void addFuncionarios(Funcionario funcionario) {
+    	 funcionarios.add(funcionario);
+	 }
+	 
+	 
+}
