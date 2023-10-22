@@ -1,32 +1,51 @@
 package loja;
+
 import java.util.ArrayList;
 
 public class Loja {
-         
-	 int lojaId;
-	 String nomeFantasia;
-	 String cnpj;
-	 double valorDeMercado;
-	 ArrayList<Pedido> pedidos = new ArrayList<Pedido>();
-	 ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
-	 
-	 
-	 Loja(int lojaId, String nomeFantasia,  String cnpj,  double valorDeMercado) {
-		 
-		 this.lojaId = lojaId;
-		 this.nomeFantasia = nomeFantasia;
-		 this.cnpj = cnpj;
-		 this.valorDeMercado = valorDeMercado;
-		 
-	 }
-	 
-	 public void addPedidos(Pedido pedido) {
-		 pedidos.add(pedido);
-	 }
-	 
-     public void addFuncionarios(Funcionario funcionario) {
-    	 funcionarios.add(funcionario);
-	 }
-	 
-	 
+    private int lojaId;
+    private String nomeFantasia;
+    private String cnpj;
+    private double valorDeMercado;
+    private ArrayList<Pedido> pedidos = new ArrayList<Pedido>();
+    private ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
+
+    public Loja(int lojaId, String nomeFantasia, String cnpj, double valorDeMercado) {
+        this.lojaId = lojaId;
+        this.nomeFantasia = nomeFantasia;
+        this.cnpj = cnpj;
+        this.valorDeMercado = valorDeMercado;
+    }
+
+    public int getLojaId() {
+        return lojaId;
+    }
+
+    public String getNomeFantasia() {
+        return nomeFantasia;
+    }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public double getValorDeMercado() {
+        return valorDeMercado;
+    }
+
+    public ArrayList<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void addPedidos(Pedido pedido) {
+        pedidos.add(pedido);
+    }
+
+    public ArrayList<Funcionario> getFuncionarios() {
+        return funcionarios;
+    }
+
+    public void addFuncionarios(Funcionario funcionario) {
+        funcionarios.add(funcionario);
+    }
 }
