@@ -1,24 +1,57 @@
 package loja;
 
-public class Main {
-	
-    public static void main(String[] args) {
-    	
-        Loja loja1 = new Loja(2023, "csShop", "61.476.287/0013-29", 250400);
-        Pedido pedido1 = new Pedido(01);
-        ItemPedido item1 = new ItemPedido(01, "Tomate", 3, 15);
-        ItemPedido item2 = new ItemPedido(02, "Alface", 2, 10);
-        Funcionario funcionario1 = new Funcionario("Renan", "202309116", 1000);
-        
-        pedido1.addItemPedido(item1);
-        pedido1.addItemPedido(item2);
-        loja1.addPedidos(pedido1);
-        loja1.addFuncionarios(funcionario1);
-        pedido1.calcPrecoTotal();
-            
-    }   
-    
-}
+import java.util.ArrayList;
+import java.util.Date;
 
+public class Main {
+
+    public static void main(String[] args) {
+        // Criando alguns funcionários
+        Funcionario funcionario1 = new Funcionario("João", "12345", 2500.0f);
+        Funcionario funcionario2 = new Funcionario("Maria", "67890", 3000.0f);
+
+        // Criando alguns itens de pedido
+        ItemPedido item1 = new ItemPedido(1, "Produto A", 3, 10.0f);
+        ItemPedido item2 = new ItemPedido(2, "Produto B", 2, 15.0f);
+
+        // Criando um pedido e adicionando itens
+        Pedido pedido = new Pedido(1);
+        pedido.addItemPedido(item1);
+        pedido.addItemPedido(item2);
+
+        // Calculando o preço total do pedido
+        pedido.calcPrecoTotal();
+
+        // Criando uma loja e adicionando funcionários e pedidos
+        Loja loja = new Loja(1, "Minha Loja", "123456789", 100000.0);
+        loja.addFuncionarios(funcionario1);
+        loja.addFuncionarios(funcionario2);
+        loja.addPedidos(pedido);
+
+        // Exibindo informações da loja
+        System.out.println("Nome da Loja: " + loja.getNomeFantasia());
+        System.out.println("CNPJ: " + loja.getCnpj());
+        System.out.println("Valor de Mercado: " + loja.getValorDeMercado());
+
+        // Exibindo informações dos funcionários da loja
+        System.out.println("Funcionários da Loja:");
+        for (Funcionario funcionario : loja.getFuncionarios()) {
+            System.out.println("Nome: " + funcionario.getNome() + ", Matrícula: " + funcionario.getMatricula() + ", Salário: " + funcionario.getSalario());
+        }
+
+        // Exibindo informações dos pedidos da loja
+        System.out.println("Pedidos da Loja:");
+        for (Pedido p : loja.getPedidos()) {
+            System.out.println("ID do Pedido: " + p.getPedidoId());
+            System.out.println("Data de Emissão: " + p.getDataEmissao());
+            System.out.println("Valor Total do Pedido: " + p.getValorTotalCalculado());
+
+            System.out.println("Itens no Pedido:");
+            for (ItemPedido item : p.getItensPedido()) {
+                System.out.println("ID: " + item.getItemPedidoId() + ", Item: " + item.getItem() + ", Quantidade: " + item.getQuantidade() + ", Preço Unitário: " + item.getPrecoUnitario());
+            }
+        }
+    }
+}
 
 
