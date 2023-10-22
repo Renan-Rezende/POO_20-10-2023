@@ -3,43 +3,43 @@ import java.util.ArrayList;
 
 public class Municipio {
 
-	 String nome;
-	 ArrayList<Imovel> imoveis = new ArrayList<Imovel>();
-	 
-	 public void addMunicipio(String nome) {
-		 this.nome = nome;
-	 }
-	 
-	 public void addImovel(Imovel imovel) {
-		 imoveis.add(imovel);
-		 System.out.print("Quantidade de imóveis em " + this.nome +  ": " + this.imoveis.size() + "\n");
-	 }
-	 
-	    public void calcularImpostos(Imovel imovel) {
-	    	
-	    	float impostosCalculados = imovel.impostos;
-	    	
-	    	
-	    	if(imovel.mesesAtraso == 0) {
-	   	         System.out.print("Nenhuma multa a pagar!");
-	         } else if(imovel.mesesAtraso > 0 && imovel.mesesAtraso <= 5 ) {
-	        	 impostosCalculados *= 1.01 ;
-	    	     System.out.print("Impostos com multa: " + impostosCalculados);
-	    	 } else if(imovel.mesesAtraso >= 6 && imovel.mesesAtraso <= 8 ) {
-	    		 impostosCalculados *= 1.023 ;
-	       	     System.out.print("Impostos com multa: " + impostosCalculados);
-	         } else if(imovel.mesesAtraso >= 9 && imovel.mesesAtraso <= 10 ) {
-	        	 impostosCalculados *= 1.03 ;
-	             System.out.print("Impostos com multa: " + impostosCalculados);
-	     	 } else if(imovel.mesesAtraso >= 11 && imovel.mesesAtraso <= 12 ) {
-	     		impostosCalculados *= 1.054 ;
-	             System.out.print("Impostos com multa: " + impostosCalculados);
-	         } else if(imovel.mesesAtraso >12 ) {
-	        	 impostosCalculados *=  1.1 ;
-	        	 System.out.print("Impostos com multa: " + impostosCalculados);
-	     	 }
-	          
-	    }
-	 
-	 
+    private String nome; // Alteração: Declarando como private
+    private ArrayList<Imovel> imoveis = new ArrayList<Imovel>(); // Alteração: Declarando como private
+
+    public void setNome(String nome) { // Alteração: Adicionando um método para configurar o nome
+        this.nome = nome;
+    }
+
+    public String getNome() { // Alteração: Adicionando um método para obter o nome
+        return nome;
+    }
+
+    public void addImovel(Imovel imovel) {
+        imoveis.add(imovel);
+        System.out.print("Quantidade de imóveis em " + this.nome + ": " + this.imoveis.size() + "\n");
+    }
+
+    public void calcularImpostos(Imovel imovel) {
+        float impostosCalculados = imovel.getImpostos(); // Alteração: Usar o método getImpostos em vez de acessar diretamente
+
+        if (imovel.getMesesAtraso() == 0) { // Alteração: Usar o método getMesesAtraso
+            System.out.print("Nenhuma multa a pagar!");
+        } else if (imovel.getMesesAtraso() > 0 && imovel.getMesesAtraso() <= 5) {
+            impostosCalculados *= 1.01;
+            System.out.print("Impostos com multa: " + impostosCalculados);
+        } else if (imovel.getMesesAtraso() >= 6 && imovel.getMesesAtraso() <= 8) {
+            impostosCalculados *= 1.023;
+            System.out.print("Impostos com multa: " + impostosCalculados);
+        } else if (imovel.getMesesAtraso() >= 9 && imovel.getMesesAtraso() <= 10) {
+            impostosCalculados *= 1.03;
+            System.out.print("Impostos com multa: " + impostosCalculados);
+        } else if (imovel.getMesesAtraso() >= 11 && imovel.getMesesAtraso() <= 12) {
+            impostosCalculados *= 1.054;
+            System.out.print("Impostos com multa: " + impostosCalculados);
+        } else if (imovel.getMesesAtraso() > 12) {
+            impostosCalculados *= 1.1;
+            System.out.print("Impostos com multa: " + impostosCalculados);
+        }
+    }
 }
+
